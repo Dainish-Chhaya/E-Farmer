@@ -33,6 +33,8 @@ Ensure that **Oracle SQL Developer** is installed and connected to a valid datab
 
 ### 🔧 Step-by-Step Setup
 
+Execute below steps in the exact order
+ 
 #### 1️⃣ **Application Admin Creation**
 1. Run `CreateAdminUser.sql` to create the application admin user.
 2. Use the credentials generated to establish a connection with the application admin user in Oracle SQL Developer.
