@@ -1,126 +1,120 @@
-# E-Farmer: Online Farming Shopping Portal 
+# 🌾 E-Farmer: Online Farming Shopping Portal
 
-## Project Description
-E-Farmer is an Online Transaction Processing (OLTP) system that directly connects farmers with consumers, facilitating the purchase and sale of agricultural products without intermediaries. The system streamlines order processing, payment handling, and logistics, enhancing transparency and efficiency across the supply chain.
+## 📄 Project Description
+**E-Farmer** is an Online Transaction Processing (OLTP) system designed to directly connect farmers with consumers, eliminating intermediaries. The system streamlines processes such as order management, payment handling, and logistics, fostering transparency and efficiency across the agricultural supply chain.
 
-## Objective
+## 🎯 Objective
 The primary goals of this project are to:
+- 🛒 Enable farmers to list and sell products directly to consumers.
+- 🌐 Provide consumers with an online platform to browse and purchase agricultural goods.
+- 🔄 Automate critical processes, including order management, payment processing, and logistics coordination.
 
-Enable farmers to list and sell products directly to consumers.
-Provide consumers with an online platform to browse and purchase agricultural goods.
-Automate key processes, including order management, payment processing, and logistics.
+## ✨ Key Features
+- **Farmer Portal**: Farmers can list products, manage inventory, and track sales.
+- **Consumer Portal**: Consumers can browse, search, and purchase products with ease.
+- **Order Management**: Includes tracking, payment integration, and logistics.
+- **Reports and Analytics**: Provides insights into inventory, sales trends, and top-performing products.
+- **Database Views**: Offers valuable insights for better decision-making.
+- **Automated Alerts**: Notifications for low stock, pending deliveries, and failed payments.
 
-## Project Setup Instructions
-Follow the steps below to set up the E-Farmer project. Execute each script in the specified order.
+## 🛠️ Technologies Used
+- **Database**: Oracle SQL Developer
+- **Backend**: PL/SQL scripts for triggers, procedures, and functions
+- **Frontend**: Basic UI setup for database interaction
+- **Reporting**: Views and scripts for data analysis
+- **Automation**: Triggers for active/inactive status and logistic updates
 
-### Prerequisite
-Ensure that Oracle SQL Developer is installed and connected to a valid database connection.
+---
 
-## Step 1: Application Admin Creation
-Begin by setting up an application administrator user who will manage the application. This admin account will be used to execute subsequent scripts.
+## ⚙️ Project Setup Instructions
 
-Run CreateAdminUser.sql to create the application admin user with the necessary credentials.
+### 🛠️ Prerequisite
+Ensure that **Oracle SQL Developer** is installed and connected to a valid database connection.
 
-Use the credentials from the above script to establish a connection with the application admin user in Oracle SQL Developer.Connect to the database using the application admin user account.
+### 🔧 Step-by-Step Setup
 
-## Step 2: Execute Data Definition Language (DDL) Scripts
-Navigate to the DDL folder and execute the scripts in the following order to create the required database tables:
+#### 1️⃣ **Application Admin Creation**
+1. Run `CreateAdminUser.sql` to create the application admin user.
+2. Use the credentials generated to establish a connection with the application admin user in Oracle SQL Developer.
 
-1.Farmer.sql
+#### 2️⃣ **Execute Data Definition Language (DDL) Scripts**
+Navigate to the `DDL` folder and execute the scripts in the following order to create the necessary tables:
+- `Farmer.sql`
+- `Consumer.sql`
+- `Product.sql`
+- `Inventory.sql`
+- `Order.sql`
+- `Order_Item.sql`
+- `Payments.sql`
+- `Logistics.sql`
 
-2.Consumer.sql
+Then execute the scripts to create views:
+- `Consumer_View.sql`
+- `Inactive_Products_View.sql`
+- `CurrentInventoryStatusView.sql`
+- `Discount_On_Perishable_View.sql`
+- `WeekWiseSalesView.sql`
+- `TopSellingView.sql`
+- `PendingDeliveries_View.sql`
 
-3.Product.sql
+#### 3️⃣ **Create Users and Grant Access**
+Run `User_grant.sql` to create and grant necessary permissions to standard user roles (farmers, consumers, etc.).
 
-4.Inventory.sql
+#### 4️⃣ **Execute Sequence Creation Script**
+Run `Sequence_Creation.sql` to generate sequences for tables like `Orders`, `Order_Item`, `Payments`, and `Logistics`.
 
-5.Order.sql
+#### 5️⃣ **Execute Data Manipulation Language (DML) Scripts**
+Populate the database with sample data by running the following scripts in order:
+- `Farmer_Insert.sql`
+- `Consumer_Insert.sql`
+- `Product_Insert.sql`
+- `Inventory_Insert.sql`
+- `Order_Insert.sql`
+- `Order_Items_Insert.sql`
+- `Payments_Insert.sql`
+- `Logistics_Insert.sql`
 
-6.Order_Item.sql
+#### 6️⃣ **Execute Trigger Scripts**
+Run the following triggers for automated updates:
+- `Active_Inactive_Trigger.sql`
+- `Logistic_Status.sql`
 
-7.Payments.sql
+#### 7️⃣ **Execute Stored Procedures**
+Run the following procedures to handle various operations:
+- `add_product_proc.sql`
+- `low_stock_alert_proc.sql`
+- `payment_proc.sql`
+- `process_order_proc.sql`
+- `update_logistics_proc.sql`
 
-8.Logistics.sql
+#### 8️⃣ **Execute Functions**
+Run the following functions for analytics and insights:
+- `get_average_order_value_function.sql`
+- `get_category_wise_inventory_function.sql`
+- `get_consumer_order_history_function.sql`
+- `get_failed_payment_consumer_function.sql`
 
-After creating the tables, execute the scripts below to create views:
+#### 9️⃣ **Execute Reports**
+Generate reports by executing:
+- `get_average_order_value_function.sql`
+- `get_category_wise_inventory_function.sql`
+- `get_consumer_order_history_function.sql`
+- `get_failed_payment_consumer_function.sql`
 
-1.Consumer_View.sql
+---
 
-2.Inactive_Products_View.sql
+## 🌟 Future Enhancements
+- **Real-Time Notifications**: SMS and email alerts for orders and payments.
+- **Mobile Application**: Extend functionality to mobile platforms.
+- **Advanced Analytics**: AI-powered insights for predicting trends and optimizing inventory.
+- **Payment Gateway Integration**: Support for popular payment platforms.
+- **Improved UI**: Develop a rich and interactive user interface.
 
-3.CurrentInventoryStatusView.sql
+## 👥 Contributors 
+- **Aravind Ravi**
+- **Dainish Chhaya**
+- **Divyansh-Jemni**
+- **Nidhi Nair**
+---
 
-4.Discount_On_Perishable_View.sql
-
-5.WeekWiseSalesView.sql
-
-6.TopSellingView.sql
-
-7. PendingDeliveries_View.sql
-
-## Step 3: Create Users and Grant Access
-To set up standard users and assign them the appropriate roles, execute the following script:
-
-User_grant.sql - This script creates user accounts for farmers, consumers and other roles, granting them the necessary permissions to interact with the database.
-
-## Step 4: Execute Sequence Creation Script
-Run the Sequence_Creation.sql to create necessary sequences for Orders, Order_Item, Payments and Logistics tables
-
-## Step 5: Execute Data Manipulation Language (DML) Scripts
-After creating the tables and views, navigate to the DML folder and populate the tables with sample data by executing the following scripts in order:
-
-1.Farmer_Insert.sql
-
-2.Consumer_Insert.sql
-
-3.Product_Insert.sql
-
-4.Inventory_Insert.sql
-
-5.Order_Insert.sql
-
-6.Order_Items_Insert.sql
-
-7.Payments_Insert.sql
-
-8.Logistics_Insert.sql
-
-## Step 6: Execute Trigger Scripts
-After the population of sample data using the DML scripts, triggers need to be executed from the Triggers folder:
-
-1. Active_Inactive_Trigger.sql
-
-2. logistic_Status.sql
-
-## Step 7: Execute Procedures
-Once the Triggers are executed, the stored procedure scripts are to be executed in the following order:
-1. add_product_proc.sql
-   
-2. low_stock_alert_proc.sql
-
-3. payment_proc.sql
-
-4. process_order_proc.sql
-
-5. update_logistics_proc.sql
-
-## Step 8: Execute Functions
-Once the Procedure script execution is successful, the different function scripts need to be executed, from the Functions folder:
-1. get_average_order_value_function.sql
-
-2. get_category_wise_inventory_function.sql
-
-3. get_consumer_order_history_function.sql
-
-4. get_failed_payment_consumer_function.sql
-
-## Step 9: Execute Report
-After the successful execution of Functions, the four report scripts need to be executed.
-
-1. get_average_order_value_function.sql
-
-2. get_category_wise_inventory_function.sql
-
-3. get_consumer_order_history_function.sql
-
-4. get_failed_payment_consumer_function.sql
+** In case of any questions, please contact me at chhaya.d@northeastern.edu 
